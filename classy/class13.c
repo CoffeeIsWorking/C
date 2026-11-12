@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+union Student
+
+{
+
+int roll;
+
+float marks;
+
+char grade;
+};
+
+int main()
+
+{ union Student s;
+
+s.roll = 101;
+
+printf("Roll = %d\n", s.roll);
+
+s.marks = 85.5;
+
+printf("Marks = %.2f\n", s.marks);
+
+s.grade = 'A';
+
+printf("Grade = %c\n", s.grade);
+
+printf("Memory = %zu bytes\n", sizeof(s));
+
+return 0;
+
+}
