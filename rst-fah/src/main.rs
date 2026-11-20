@@ -5,30 +5,29 @@ struct Vectors{
     variable_vector: Vec<char>
 }
 
-pub fn input_parsing(input:&str) -> Result<Vectors,&str>{
+pub fn input_parsing(vectors:&mut Vectors, input:&str) -> Result<&mut Vectors,&str>{
     
-    Vectors vector{
-        .number_vector = Vec::new();
-    };
 
 
     for item in input.chars() {
         
         if item.is_alphanumeric() {
+        
             if item.is_numeric(){
                 
-                number_vector.push(item.to_digit(10).unwrap() as i32);
+                vectors.number_vector.push(item.to_digit(10).unwrap() as i32);
             }
 
             else if item.is_alphabetic(){
-                variable_vector.push(item);
+                vectors.variable_vector.push(item);
             }
 
             else{
-                Err("fahh")?
-            };
-        };
-    };
+                return Err("Fahh")
+            }
+        }
+    }
+    return Ok()
 }
 
 
